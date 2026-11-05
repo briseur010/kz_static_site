@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>KZ Corporate Consulting </title>
+    <meta name="description" content="Cabinet de conseil et d'accompagnement des entreprises à Lubumbashi">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --arriere-plan-principal: #0B0C0E;
+            --arriere-plan-surface: #121418;
+            --arriere-plan-carte: #181B20;
+            --bordure-legere: rgba(255, 255, 255, 0.08);
+            --bordure-accent: rgba(212, 175, 55, 0.3);
+            
+            --texte-principal: #F3F4F6;
+            --texte-secondaire: #9CA3AF;
+            --texte-sourd: #6B7280;
+            
+            --accent-argent-metallique: linear-gradient(135deg, #E2E8F0 0%, #94A3B8 50%, #64748B 100%);
+            
+            --police-titres: 'Cinzel', serif;
+            --police-corps: 'Plus Jakarta Sans', sans-serif;
+            
+            --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--arriere-plan-principal);
+            color: var(--texte-principal);
+            font-family: var(--police-corps);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            overflow-x: hidden;
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .conteneur {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, .style-marque {
+            font-family: var(--police-titres);
+            letter-spacing: 0.03em;
+            font-weight: 600;
+        }
+
+        .etiquette-section {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--texte-secondaire);
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .etiquette-section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 18px;
+            height: 1px;
+            background: var(--texte-secondaire);
+        }
+
+        .titre-section {
+            font-size: clamp(1.6rem, 4vw, 2.25rem);
+            line-height: 1.25;
+            margin-bottom: 20px;
+            color: #FFFFFF;
+        }
+
+        .barre-navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: var(--transition);
+            background: rgba(11, 12, 14, 0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: calc(16px + env(safe-area-inset-top));
+        }
+
+        .barre-navigation.defilement {
+            padding-top: calc(12px + env(safe-area-inset-top));
+            padding-bottom: 12px;
+            background: rgba(11, 12, 14, 0.98);
+            border-bottom-color: var(--bordure-legere);
+        }
+
+        .conteneur-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-marque {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 1002;
+        }
+
+        .image-logo-marque {
+            height: 38px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .texte-marque {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nom-marque {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1;
+        }
+
+        .slogan-marque {
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            color: var(--texte-secondaire);
+            text-transform: uppercase;
+            margin-top: 3px;
+        }
+
+        .liens-nav {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .lien-nav {
+            font-size: 0.9rem;
+            color: var(--texte-secondaire);
+            transition: var(--transition);
+            font-weight: 400;
+            padding: 8px 0;
+        }
+
+        .lien-nav:hover {
+            color: #FFFFFF;
+        }
+
+        .bouton-en-tete {
+            padding: 10px 20px;
+            border: 1px solid var(--bordure-legere);
+            border-radius: 2px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.02);
+            color: #FFFFFF;
+            display: inline-block;
+        }
+
+        .bouton-menu-mobile {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1002;
+            flex-direction: column;
+            gap: 5px;
+            width: 40px;
+            height: 40px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bouton-menu-mobile span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background-color: #FFFFFF;
+            transition: var(--transition);
+        }
+
+        .bouton-menu-mobile.actif span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .bouton-menu-mobile.actif span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .bouton-menu-mobile.actif span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .accueil {
+            padding: calc(140px + env(safe-area-inset-top)) 0 80px;
+            position: relative;
+            background: radial-gradient(circle at 50% 20%, rgba(30, 35, 45, 0.5) 0%, rgba(11, 12, 14, 1) 70%);
+            border-bottom: 1px solid var(--bordure-legere);
+        }
+
+        .grille-accueil {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .titre-accueil {
+            font-size: clamp(2.1rem, 5.5vw, 3.5rem);
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: #FFFFFF;
+        }
+
+        .sous-titre-accueil {
+            font-size: clamp(0.95rem, 2.5vw, 1.125rem);
+            color: var(--texte-secondaire);
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+
+        .actions-accueil {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .bouton-principal, .bouton-secondaire {
+            padding: 14px 28px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: var(--transition);
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 48px;
+            text-align: center;
+            border-radius: 2px;
+        }
+
+        .bouton-principal {
+            background: #FFFFFF;
+            color: #000000;
+            border: 1px solid #FFFFFF;
+        }
+
+        .bouton-secondaire {
+            background: transparent;
+            color: #FFFFFF;
+            border: 1px solid var(--bordure-legere);
+        }
+
+        .carte-devise-accueil {
+            background: var(--arriere-plan-carte);
+            border: 1px solid var(--bordure-legere);
+            padding: 32px 28px;
+            position: relative;
+        }
+
+        .carte-devise-accueil::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--accent-argent-metallique);
+        }
+
+        .etiquette-devise {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--texte-sourd);
+            margin-bottom: 10px;
+        }
+
+        .texte-devise {
+            font-family: var(--police-titres);
+            font-size: clamp(1.3rem, 3.5vw, 1.75rem);
+            color: #FFFFFF;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .texte-devise span {
+            display: block;
+            color: var(--texte-secondaire);
+            font-weight: 400;
+        }
+
+        .meta-accueil {
+            font-size: 0.8rem;
+            color: var(--texte-secondaire);
+            border-top: 1px solid var(--bordure-legere);
+            padding-top: 16px;
+        }
+
+        section {
+            padding: clamp(60px, 8vw, 100px) 0;
+            border-bottom: 1px solid var(--bordure-legere);
+        }
+
+        .grille-a-propos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .texte-a-propos p {
+            color: var(--texte-secondaire);
+            margin-bottom: 18px;
+            font-size: 0.98rem;
+            font-weight: 300;
+        }
+
+        .encadre-fondateur {
+            background: var(--arriere-plan-surface);
+            border: 1px solid var(--bordure-legere);
+            padding: 28px;
+            margin-top: 24px;
+        }
+
+        .nom-fondateur {
+            font-size: 1.15rem;
+            color: #FFFFFF;
+            margin-bottom: 4px;
+        }
+
+        .fonction-fondateur {
+            font-size: 0.75rem;
+            color: var(--texte-sourd);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+
+        .biographie-fondateur {
+            font-size: 0.9rem;
+            color: var(--texte-secondaire);
+            line-height: 1.6;
+        }
+
+        .liste-valeurs {
+            list-style: none;
+            display: grid;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .element-valeur {
+            background: var(--arriere-plan-surface);
+            border: 1px solid var(--bordure-legere);
+            padding: 20px 24px;
+            transition: var(--transition);
+        }
+
+        .titre-valeur {
+            font-size: 1rem;
+            color: #FFFFFF;
+            margin-bottom: 6px;
+            font-family: var(--police-titres);
+        }
+
+        .description-valeur {
+            font-size: 0.88rem;
+            color: var(--texte-secondaire);
+        }
+
+        .en-tete-services {
+            max-width: 640px;
+            margin-bottom: 40px;
+        }
+
+        .grille-services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .carte-service {
+            background: var(--arriere-plan-carte);
+            border: 1px solid var(--bordure-legere);
+            padding: 32px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        .numero-service {
+            font-family: var(--police-titres);
+            font-size: 1.1rem;
+            color: var(--texte-sourd);
+            margin-bottom: 18px;
+        }
+
+        .titre-service {
+            font-size: 1.2rem;
+            color: #FFFFFF;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .description-service {
+            font-size: 0.88rem;
+            color: var(--texte-secondaire);
+            margin-bottom: 24px;
+            font-weight: 300;
+        }
+
+        .lien-service {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .encadre-couverture {
+            background: var(--arriere-plan-surface);
+            border: 1px solid var(--bordure-legere);
+            padding: 32px 28px;
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .info-couverture h4 {
+            font-size: 1.1rem;
+            color: #FFFFFF;
+            margin-bottom: 6px;
+        }
+
+        .info-couverture p {
+            color: var(--texte-secondaire);
+            font-size: 0.88rem;
+        }
+
+        .grille-contact {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 60px;
+        }
+
+        .details-contact {
+            display: grid;
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .element-detail-contact {
+            border-left: 2px solid var(--bordure-legere);
+            padding-left: 16px;
+        }
+
+        .etiquette-detail {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--texte-sourd);
+            margin-bottom: 4px;
+        }
+
+        .valeur-detail {
+            font-size: 0.95rem;
+            color: #FFFFFF;
+        }
+
+        .formulaire-contact {
+            background: var(--arriere-plan-carte);
+            border: 1px solid var(--bordure-legere);
+            padding: clamp(24px, 5vw, 40px);
+        }
+
+        .groupe-formulaire {
+            margin-bottom: 20px;
+        }
+
+        .etiquette-formulaire {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--texte-secondaire);
+            margin-bottom: 6px;
+        }
+
+        .champ-saisie, .zone-texte {
+            width: 100%;
+            background: var(--arriere-plan-principal);
+            border: 1px solid var(--bordure-legere);
+            padding: 14px 16px;
+            color: #FFFFFF;
+            font-family: var(--police-corps);
+            font-size: 16px;
+            border-radius: 2px;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .champ-saisie:focus, .zone-texte:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.4);
+            background: #000000;
+        }
+
+        .zone-texte {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .bouton-envoi {
+            width: 100%;
+            padding: 16px;
+            background: #FFFFFF;
+            color: #000000;
+            border: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            border-radius: 2px;
+            min-height: 48px;
+        }
+
+        .section-reseaux {
+            padding: 32px 0;
+            background: var(--arriere-plan-surface);
+        }
+
+        .flex-reseaux {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .liens-reseaux {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .bouton-reseau {
+            padding: 10px 18px;
+            border: 1px solid var(--bordure-legere);
+            font-size: 0.8rem;
+            color: var(--texte-secondaire);
+            border-radius: 2px;
+            min-height: 40px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        pied-de-page {
+            padding: 48px 0 calc(32px + env(safe-area-inset-bottom));
+            background: #060708;
+            font-size: 0.8rem;
+            color: var(--texte-sourd);
+            display: block;
+        }
+
+        .flex-pied-de-page {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 24px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .mentions-legales-pied-de-page {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .credit-basyk {
+            color: var(--texte-secondaire);
+            font-weight: 500;
+        }
+
+        .credit-basyk span {
+            color: #FFFFFF;
+        }
+
+        @media (max-width: 992px) {
+            .bouton-menu-mobile {
+                display: flex;
+            }
+
+            .liens-nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 320px;
+                height: 100vh;
+                background: #0D0E12;
+                border-left: 1px solid var(--bordure-legere);
+                flex-direction: column;
+                padding: calc(100px + env(safe-area-inset-top)) 32px 40px;
+                gap: 24px;
+                transition: var(--transition);
+                z-index: 1001;
+            }
+
+            .liens-nav.actif {
+                right: 0;
+            }
+
+            .lien-nav {
+                font-size: 1.1rem;
+                color: #FFFFFF;
+            }
+
+            .bouton-en-tete {
+                display: none;
+            }
+
+            .grille-accueil, .grille-a-propos, .grille-contact {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .grille-services {
+                grid-template-columns: 1fr;
+            }
+
+            .actions-accueil {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .bouton-principal, .bouton-secondaire {
+                width: 100%;
+            }
+
+            .encadre-couverture {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .encadre-couverture .bouton-secondaire {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="barre-navigation" id="barreNav">
+        <div class="conteneur conteneur-nav">
+            <a href="#" class="logo-marque">
+                <img src="noir.jpg" alt="KZ Corporate Consulting" class="image-logo-marque">
+                <div class="texte-marque">
+                    <span class="nom-marque">KZ CORPORATE</span>
+                    <span class="slogan-marque">CONSULTING</span>
+                </div>
+            </a>
+            
+            <button class="bouton-menu-mobile" id="declencheurMenu" aria-label="Menu Mobile">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="liens-nav" id="liensNav">
+                <li><a href="#a propos" class="lien-nav">À Propos</a></li>
+                <li><a href="#services" class="lien-nav">Services</a></li>
+                <li><a href="#contact" class="lien-nav">Contact</a></li>
+                <li style="margin-top: 12px;"><a href="https://wa.me/243994871449" target="_blank" class="bouton-principal" style="width: 100%; padding: 12px; text-align: center;">WhatsApp Direct</a></li>
+            </ul>
+
+            <a href="https://wa.me/243994871449" target="_blank" class="bouton-en-tete">Écrire sur WhatsApp</a>
+        </div>
+    </header>
+
+    <section class="accueil">
+        <div class="conteneur grille-accueil">
+            <div class="contenu-accueil">
+                <span class="etiquette-section">Conseil & Accompagnement Stratégique</span>
+                <h1 class="titre-accueil">L'Exigence Juridique au Service de Votre Croissance.</h1>
+                <p class="sous-titre-accueil">
+                    Nous guidons les porteurs de projets et les entreprises établies dans leur structuration, leur conformité réglementaire et leur développement durable en RDC.
+                </p>
+                <div class="actions-accueil">
+                    <a href="#contact" class="bouton-principal">Prendre Rendez-vous</a>
+                    <a href="#services" class="bouton-secondaire">Découvrir nos Services</a>
+                </div>
+            </div>
+
+            <div class="carte-devise-accueil">
+                <div class="etiquette-devise">Notre Devise</div>
+                <div class="texte-devise">
+                    Structurer.
+                    <span>Développer.</span>
+                    Pérenniser.
+                </div>
+                <div class="meta-accueil">
+                    Cabinet basé à Lubumbashi 
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="a-propos">
+        <div class="conteneur grille-a-propos">
+            <div class="texte-a-propos">
+                <span class="etiquette-section">Notre Histoire & Vision</span>
+                <h2 class="titre-section">Au-delà des formalités, bâtir des structures durables.</h2>
+                <p>
+                    KZ CORPORATE CONSULTING est né d'une conviction fondamentale : la création administrative d'une entreprise n'est que la première étape de l'aventure entrepreneuriale.
+                </p>
+                <p>
+                    Fondée à Lubumbashi, notre structure apporte une vision rigoureuse et stratégique pour accompagner les organisations face aux défis de conformité, d'organisation interne et d'émergence sur des marchés exigeants.
+                </p>
+
+                <div class="encadre-fondateur">
+                    <div class="nom-fondateur">Philippe KAZOMBYA</div>
+                    <div class="fonction-fondateur">Fondateur & Directeur Général</div>
+                    <div class="biographie-fondateur">
+                        Juriste de formation passionné par le droit des affaires et l'entrepreneuriat, Philippe Kazombya met son expertise au service de la création d'entreprises solides, parfaitement intégrées dans leur cadre légal et parées pour une croissance pérenne.
+                    </div>
+                </div>
+            </div>
+
+            <div class="valeurs-a-propos">
+                <span class="etiquette-section">Notre Approche</span>
+                <h2 class="titre-section">Ce qui guide nos interventions.</h2>
+                
+                <ul class="liste-valeurs">
+                    <li class="element-valeur">
+                        <div class="titre-valeur">Pragmatisme & Analyse</div>
+                        <div class="description-valeur">Chaque recommandation repose sur un audit approfondi des réalités opérationnelles et juridiques de votre secteur.</div>
+                    </li>
+                    <li class="element-valeur">
+                        <div class="titre-valeur">Rigueur & Conformité</div>
+                        <div class="description-valeur">Sécurisation intégrale de vos actes, contrats et procédures pour garantir une sérénité totale face aux régulateurs.</div>
+                    </li>
+                    <li class="element-valeur">
+                        <div class="titre-valeur">Orientation Résultats</div>
+                        <div class="description-valeur">Des solutions concrètes conçues pour optimiser la gouvernance et faciliter le développement commercial.</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="conteneur">
+            <div class="en-tete-services">
+                <span class="etiquette-section">Domaines d'Expertise</span>
+                <h2 class="titre-section">Des solutions adaptées aux enjeux des entreprises.</h2>
+            </div>
+
+            <div class="grille-services">
+                <div class="carte-service">
+                    <div>
+                        <div class="numero-service">01</div>
+                        <h3 class="titre-service">Création & Structuration Juridique</h3>
+                        <p class="description-service">
+                            Accompagnement complet dans le choix des statuts, la rédaction des actes constitutifs et le déploiement de l'organisation juridique initiale.
+                        </p>
+                    </div>
+                    <a href="#contact" class="lien-service">Consulter <span>→</span></a>
+                </div>
+
+                <div class="carte-service">
+                    <div>
+                        <div class="numero-service">02</div>
+                        <h3 class="titre-service">Conformité & Réglementation</h3>
+                        <p class="description-service">
+                            Mise en conformité du cadre légal de votre activité et gestion des obligations réglementaires spécifiques en RDC.
+                        </p>
+                    </div>
+                    <a href="#contact" class="lien-service">Consulter <span>→</span></a>
+                </div>
+
+                <div class="carte-service">
+                    <div>
+                        <div class="numero-service">03</div>
+                        <h3 class="titre-service">Conseil en Affaires & Organisation</h3>
+                        <p class="description-service">
+                            Recommandations stratégiques et mise en place d'outils d'organisation interne pour pérenniser vos opérations.
+                        </p>
+                    </div>
+                    <a href="#contact" class="lien-service">Consulter <span>→</span></a>
+                </div>
+            </div>
+
+            <div class="encadre-couverture">
+                <div class="info-couverture">
+                    <h4>Zone d'Intervention Privilégiée</h4>
+                    <p>Entreprises, institutions et porteurs de projets dans les provinces du Haut-Katanga et du Lualaba.</p>
+                </div>
+                <a href="#contact" class="bouton-secondaire">Demander une étude</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="conteneur grille-contact">
+            <div class="info-contact">
+                <span class="etiquette-section">Échangeons</span>
+                <h2 class="titre-section">Initiez la structuration de votre projet.</h2>
+                <p style="color: var(--texte-secondaire); margin-bottom: 24px; font-size: 0.95rem;">
+                    Nos équipes se tiennent à votre disposition pour analyser vos besoins et vous proposer un accompagnement sur-mesure.
+                </p>
+
+                <div class="details-contact">
+                    <div class="element-detail-contact">
+                        <div class="etiquette-detail">Adresse des bureaux</div>
+                        <div class="valeur-detail">N° 1074, Avenue Kilela Balanda, Commune de Lubumbashi, DRC</div>
+                    </div>
+
+                    <div class="element-detail-contact">
+                        <div class="etiquette-detail">Téléphone & WhatsApp</div>
+                        <div class="valeur-detail">+243 994 871 449</div>
+                    </div>
+
+                    <div class="element-detail-contact">
+                        <div class="etiquette-detail">Adresse E-mail</div>
+                        <div class="valeur-detail">kzcorporateconsulting@gmail.com</div>
+                    </div>
+
+                    <div class="element-detail-contact">
+                        <div class="etiquette-detail">Horaires d'ouverture</div>
+                        <div class="valeur-detail">Lundi – Vendredi : 08h00 – 18h00 | Samedi : 08h00 – 12h00</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="formulaire-contact">
+                <form id="formulaireClient" action="mailto:kzcorporateconsulting@gmail.com" method="post" enctype="text/plain">
+                    <div class="groupe-formulaire">
+                        <label class="etiquette-formulaire" for="nom">Nom complet / Entreprise</label>
+                        <input type="text" id="nom" name="Nom" class="champ-saisie" required placeholder="Votre nom d'entreprise ou votre nom complet">
+                    </div>
+
+                    <div class="groupe-formulaire">
+                        <label class="etiquette-formulaire" for="courriel">E-mail professionnel</label>
+                        <input type="email" id="courriel" name="Email" class="champ-saisie" required placeholder="...@exemple.com">
+                    </div>
+
+                    <div class="groupe-formulaire">
+                        <label class="etiquette-formulaire" for="telephone">Numéro de téléphone</label>
+                        <input type="tel" id="telephone" name="Telephone" class="champ-saisie" placeholder="0">
+                    </div>
+
+                    <div class="groupe-formulaire">
+                        <label class="etiquette-formulaire" for="message">Objet de votre demande</label>
+                        <textarea id="message" name="Message" class="zone-texte" required placeholder="Décrivez vos besoins..."></textarea>
+                    </div>
+
+                    <button type="submit" class="bouton-envoi">Envoyer le message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+  <div class="section-reseaux">
+        <div class="conteneur flex-reseaux">
+            <span style="font-size: 0.85rem; color: var(--texte-secondaire);">Rejoignez nos réseaux professionnels :</span>
+            <div class="liens-reseaux">
+                <a href="https://www.facebook.com/search/top?q=KZ%20corporate%20consulting" target="_blank" class="bouton-reseau">Facebook</a>
+                <a href="https://www.instagram.com/kz_corporate_consulting" target="_blank" class="bouton-reseau">Instagram</a>
+                <a href="https://www.linkedin.com/search/results/all/?keywords=KZ%20Corporate%20Consulting" target="_blank" class="bouton-reseau">LinkedIn</a>
+                <a href="https://www.tiktok.com/@kz_corporate_consulting" target="_blank" class="bouton-reseau">TikTok</a>
+            </div>
+        </div>
+    </div>
+
+    <pied-de-page>
+        <div class="conteneur">
+            <div class="flex-pied-de-page">
+                <div class="nom-marque" style="font-size: 1rem;">KZ CORPORATE CONSULTING</div>
+                <div style="font-size: 0.8rem;">Structurer • Développer • Pérenniser</div>
+            </div>
+
+            <div class="mentions-legales-pied-de-page">
+                <div class="credit-basyk">Conçu par <span>BASYK TECH</span></div>
+            </div>
+        </div>
+    </pied-de-page>
+
+    <script>
+        const barreNav = document.getElementById('barreNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                barreNav.classList.add('defilement');
+            } else {
+                barreNav.classList.remove('defilement');
+            }
+        });
+
+        const declencheurMenu = document.getElementById('declencheurMenu');
+        const liensNav = document.getElementById('liensNav');
+
+        declencheurMenu.addEventListener('click', () => {
+            declencheurMenu.classList.toggle('actif');
+            liensNav.classList.toggle('actif');
+            document.body.style.overflow = liensNav.classList.contains('actif') ? 'hidden' : 'auto';
+        });
+
+        document.querySelectorAll('.lien-nav').forEach(lien => {
+            lien.addEventListener('click', () => {
+                declencheurMenu.classList.remove('actif');
+                liensNav.classList.remove('actif');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(ancre => {
+            ancre.addEventListener('click', function (e) {
+                e.preventDefault();
+                const cible = document.querySelector(this.getAttribute('href'));
+                if (cible) {
+                    cible.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
