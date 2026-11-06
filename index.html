@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>KZ Corporate Consulting </title>
-    <meta name="description" content="Cabinet de conseil et d'accompagnement des entreprises à Lubumbashi">
+    <title>KZ Corporate Consulting | Structurer • Développer • Pérenniser</title>
+    <meta name="description" content="Cabinet de conseil et d'accompagnement des entreprises à Lubumbashi. Structuration juridique, conformité et conseil stratégique en affaires.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,22 +12,26 @@
 
     <style>
         :root {
-            --arriere-plan-principal: #0B0C0E;
-            --arriere-plan-surface: #121418;
-            --arriere-plan-carte: #181B20;
-            --bordure-legere: rgba(255, 255, 255, 0.08);
-            --bordure-accent: rgba(212, 175, 55, 0.3);
-            
+            --arriere-plan-surface: rgba(255, 255, 255, 0.92);
+            --arriere-plan-carte: rgba(255, 255, 255, 0.85);
+            --bordure-legere: rgba(0, 0, 0, 0.12);
+            --texte-principal: #111111;
+            --texte-secondaire: #444444;
+            --texte-sourd: #666666;
+            --accent-argent-metallique: linear-gradient(135deg, #111111 0%, #444444 100%);
+            --police-titres: 'Cinzel', serif;
+            --police-corps: 'Plus Jakarta Sans', sans-serif;
+            --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        [data-theme="dark"] {
+            --arriere-plan-surface: rgba(18, 20, 24, 0.92);
+            --arriere-plan-carte: rgba(24, 27, 32, 0.85);
+            --bordure-legere: rgba(255, 255, 255, 0.1);
             --texte-principal: #F3F4F6;
             --texte-secondaire: #9CA3AF;
             --texte-sourd: #6B7280;
-            
             --accent-argent-metallique: linear-gradient(135deg, #E2E8F0 0%, #94A3B8 50%, #64748B 100%);
-            
-            --police-titres: 'Cinzel', serif;
-            --police-corps: 'Plus Jakarta Sans', sans-serif;
-            
-            --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         *, *::before, *::after {
@@ -39,18 +43,21 @@
 
         html {
             scroll-behavior: smooth;
-            background-color: var(--arriere-plan-principal);
             color: var(--texte-principal);
             font-family: var(--police-corps);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
             overflow-x: hidden;
             padding-top: env(safe-area-inset-top);
             padding-bottom: env(safe-area-inset-bottom);
+            background-image: url('arriere noir.jpg'), url('arriere blanc.jpg');
+            background-repeat: no-repeat, no-repeat;
+            background-position: top left, bottom right;
+            background-attachment: fixed;
+            background-size: 50% auto, 50% auto;
         }
 
         a {
@@ -96,7 +103,7 @@
             font-size: clamp(1.6rem, 4vw, 2.25rem);
             line-height: 1.25;
             margin-bottom: 20px;
-            color: #FFFFFF;
+            color: var(--texte-principal);
         }
 
         .barre-navigation {
@@ -107,18 +114,19 @@
             z-index: 1000;
             padding: 16px 0;
             transition: var(--transition);
-            background: rgba(11, 12, 14, 0.9);
+            background: var(--arriere-plan-surface);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid var(--bordure-legere);
             padding-top: calc(16px + env(safe-area-inset-top));
         }
 
         .barre-navigation.defilement {
             padding-top: calc(12px + env(safe-area-inset-top));
             padding-bottom: 12px;
-            background: rgba(11, 12, 14, 0.98);
+            background: var(--arriere-plan-surface);
             border-bottom-color: var(--bordure-legere);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
 
         .conteneur-nav {
@@ -148,7 +156,7 @@
         .nom-marque {
             font-size: 1rem;
             font-weight: 700;
-            color: #FFFFFF;
+            color: var(--texte-principal);
             line-height: 1;
         }
 
@@ -162,33 +170,67 @@
 
         .liens-nav {
             display: flex;
-            gap: 32px;
+            gap: 28px;
             list-style: none;
+            align-items: center;
         }
 
         .lien-nav {
             font-size: 0.9rem;
             color: var(--texte-secondaire);
             transition: var(--transition);
-            font-weight: 400;
+            font-weight: 500;
             padding: 8px 0;
         }
 
         .lien-nav:hover {
-            color: #FFFFFF;
+            color: var(--texte-principal);
+        }
+
+        .bouton-theme {
+            background: var(--arriere-plan-carte);
+            border: 1px solid var(--bordure-legere);
+            color: var(--texte-principal);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            padding: 0;
+        }
+
+        .icone-theme {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--texte-principal);
+            transition: var(--transition);
+        }
+
+        .bouton-theme:hover {
+            border-color: var(--texte-principal);
         }
 
         .bouton-en-tete {
             padding: 10px 20px;
-            border: 1px solid var(--bordure-legere);
+            border: 1px solid var(--texte-principal);
             border-radius: 2px;
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             transition: var(--transition);
-            background: rgba(255, 255, 255, 0.02);
-            color: #FFFFFF;
+            background: var(--texte-principal);
+            color: var(--arriere-plan-surface);
             display: inline-block;
+            font-weight: 600;
+        }
+
+        .bouton-en-tete:hover {
+            background: transparent;
+            color: var(--texte-principal);
         }
 
         .bouton-menu-mobile {
@@ -210,7 +252,7 @@
             display: block;
             width: 22px;
             height: 2px;
-            background-color: #FFFFFF;
+            background-color: var(--texte-principal);
             transition: var(--transition);
         }
 
@@ -229,7 +271,6 @@
         .accueil {
             padding: calc(140px + env(safe-area-inset-top)) 0 80px;
             position: relative;
-            background: radial-gradient(circle at 50% 20%, rgba(30, 35, 45, 0.5) 0%, rgba(11, 12, 14, 1) 70%);
             border-bottom: 1px solid var(--bordure-legere);
         }
 
@@ -244,14 +285,14 @@
             font-size: clamp(2.1rem, 5.5vw, 3.5rem);
             line-height: 1.15;
             margin-bottom: 20px;
-            color: #FFFFFF;
+            color: var(--texte-principal);
         }
 
         .sous-titre-accueil {
             font-size: clamp(0.95rem, 2.5vw, 1.125rem);
             color: var(--texte-secondaire);
             margin-bottom: 32px;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         .actions-accueil {
@@ -277,22 +318,33 @@
         }
 
         .bouton-principal {
-            background: #FFFFFF;
-            color: #000000;
-            border: 1px solid #FFFFFF;
+            background: var(--texte-principal);
+            color: var(--arriere-plan-surface);
+            border: 1px solid var(--texte-principal);
+        }
+
+        .bouton-principal:hover {
+            background: transparent;
+            color: var(--texte-principal);
         }
 
         .bouton-secondaire {
             background: transparent;
-            color: #FFFFFF;
+            color: var(--texte-principal);
             border: 1px solid var(--bordure-legere);
+        }
+
+        .bouton-secondaire:hover {
+            border-color: var(--texte-principal);
         }
 
         .carte-devise-accueil {
             background: var(--arriere-plan-carte);
+            backdrop-filter: blur(8px);
             border: 1px solid var(--bordure-legere);
             padding: 32px 28px;
             position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
         }
 
         .carte-devise-accueil::before {
@@ -300,7 +352,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 3px;
+            width: 4px;
             height: 100%;
             background: var(--accent-argent-metallique);
         }
@@ -316,7 +368,7 @@
         .texte-devise {
             font-family: var(--police-titres);
             font-size: clamp(1.3rem, 3.5vw, 1.75rem);
-            color: #FFFFFF;
+            color: var(--texte-principal);
             line-height: 1.4;
             margin-bottom: 20px;
         }
@@ -328,15 +380,18 @@
         }
 
         .meta-accueil {
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             color: var(--texte-secondaire);
             border-top: 1px solid var(--bordure-legere);
             padding-top: 16px;
+            font-weight: 500;
         }
 
         section {
             padding: clamp(60px, 8vw, 100px) 0;
             border-bottom: 1px solid var(--bordure-legere);
+            background: var(--arriere-plan-surface);
+            backdrop-filter: blur(8px);
         }
 
         .grille-a-propos {
@@ -349,20 +404,22 @@
             color: var(--texte-secondaire);
             margin-bottom: 18px;
             font-size: 0.98rem;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         .encadre-fondateur {
-            background: var(--arriere-plan-surface);
+            background: var(--arriere-plan-carte);
             border: 1px solid var(--bordure-legere);
             padding: 28px;
             margin-top: 24px;
+            border-left: 3px solid var(--texte-principal);
         }
 
         .nom-fondateur {
             font-size: 1.15rem;
-            color: #FFFFFF;
+            color: var(--texte-principal);
             margin-bottom: 4px;
+            font-family: var(--police-titres);
         }
 
         .fonction-fondateur {
@@ -371,6 +428,7 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: 12px;
+            font-weight: 600;
         }
 
         .biographie-fondateur {
@@ -379,30 +437,55 @@
             line-height: 1.6;
         }
 
-        .liste-valeurs {
-            list-style: none;
+        .section-equipe-header {
+            max-width: 700px;
+            margin-bottom: 50px;
+        }
+
+        .grille-equipe {
             display: grid;
-            gap: 16px;
-            margin-top: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
         }
 
-        .element-valeur {
-            background: var(--arriere-plan-surface);
+        .carte-equipe {
+            background: var(--arriere-plan-carte);
             border: 1px solid var(--bordure-legere);
-            padding: 20px 24px;
+            padding: 36px 30px;
+            border-radius: 4px;
             transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .titre-valeur {
-            font-size: 1rem;
-            color: #FFFFFF;
-            margin-bottom: 6px;
+        .carte-equipe:hover {
+            border-color: var(--texte-secondaire);
+            transform: translateY(-4px);
+        }
+
+        .carte-equipe-titre-principal {
             font-family: var(--police-titres);
+            font-size: 1.25rem;
+            color: var(--texte-principal);
+            margin-bottom: 8px;
+            line-height: 1.3;
         }
 
-        .description-valeur {
-            font-size: 0.88rem;
+        .carte-equipe-sous-titre {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--texte-sourd);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
+        }
+
+        .carte-equipe-description {
+            font-size: 0.92rem;
             color: var(--texte-secondaire);
+            font-weight: 400;
+            line-height: 1.6;
         }
 
         .en-tete-services {
@@ -426,6 +509,10 @@
             transition: var(--transition);
         }
 
+        .carte-service:hover {
+            border-color: var(--texte-principal);
+        }
+
         .numero-service {
             font-family: var(--police-titres);
             font-size: 1.1rem;
@@ -435,7 +522,7 @@
 
         .titre-service {
             font-size: 1.2rem;
-            color: #FFFFFF;
+            color: var(--texte-principal);
             margin-bottom: 12px;
             line-height: 1.3;
         }
@@ -444,14 +531,14 @@
             font-size: 0.88rem;
             color: var(--texte-secondaire);
             margin-bottom: 24px;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         .lien-service {
             font-size: 0.78rem;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            color: #FFFFFF;
+            color: var(--texte-principal);
             display: flex;
             align-items: center;
             gap: 8px;
@@ -459,7 +546,7 @@
         }
 
         .encadre-couverture {
-            background: var(--arriere-plan-surface);
+            background: var(--arriere-plan-carte);
             border: 1px solid var(--bordure-legere);
             padding: 32px 28px;
             margin-top: 40px;
@@ -471,7 +558,7 @@
 
         .info-couverture h4 {
             font-size: 1.1rem;
-            color: #FFFFFF;
+            color: var(--texte-principal);
             margin-bottom: 6px;
         }
 
@@ -507,7 +594,7 @@
 
         .valeur-detail {
             font-size: 0.95rem;
-            color: #FFFFFF;
+            color: var(--texte-principal);
         }
 
         .formulaire-contact {
@@ -531,10 +618,10 @@
 
         .champ-saisie, .zone-texte {
             width: 100%;
-            background: var(--arriere-plan-principal);
+            background: var(--arriere-plan-surface);
             border: 1px solid var(--bordure-legere);
             padding: 14px 16px;
-            color: #FFFFFF;
+            color: var(--texte-principal);
             font-family: var(--police-corps);
             font-size: 16px;
             border-radius: 2px;
@@ -544,8 +631,7 @@
 
         .champ-saisie:focus, .zone-texte:focus {
             outline: none;
-            border-color: rgba(255, 255, 255, 0.4);
-            background: #000000;
+            border-color: var(--texte-principal);
         }
 
         .zone-texte {
@@ -556,8 +642,8 @@
         .bouton-envoi {
             width: 100%;
             padding: 16px;
-            background: #FFFFFF;
-            color: #000000;
+            background: var(--texte-principal);
+            color: var(--arriere-plan-surface);
             border: none;
             font-size: 0.85rem;
             font-weight: 600;
@@ -571,6 +657,7 @@
         .section-reseaux {
             padding: 32px 0;
             background: var(--arriere-plan-surface);
+            border-bottom: 1px solid var(--bordure-legere);
         }
 
         .flex-reseaux {
@@ -596,13 +683,19 @@
             min-height: 40px;
             display: inline-flex;
             align-items: center;
+            font-weight: 500;
+        }
+
+        .bouton-reseau:hover {
+            color: var(--texte-principal);
+            border-color: var(--texte-principal);
         }
 
         pied-de-page {
             padding: 48px 0 calc(32px + env(safe-area-inset-bottom));
-            background: #060708;
+            background: var(--arriere-plan-surface);
+            color: var(--texte-secondaire);
             font-size: 0.8rem;
-            color: var(--texte-sourd);
             display: block;
         }
 
@@ -610,7 +703,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid var(--bordure-legere);
             padding-bottom: 24px;
             margin-bottom: 24px;
             flex-wrap: wrap;
@@ -631,7 +724,7 @@
         }
 
         .credit-basyk span {
-            color: #FFFFFF;
+            color: var(--texte-principal);
         }
 
         @media (max-width: 992px) {
@@ -646,11 +739,12 @@
                 width: 80%;
                 max-width: 320px;
                 height: 100vh;
-                background: #0D0E12;
+                background: var(--arriere-plan-surface);
                 border-left: 1px solid var(--bordure-legere);
                 flex-direction: column;
-                padding: calc(100px + env(safe-area-inset-top)) 32px 40px;
-                gap: 24px;
+                justify-content: center;
+                padding: 40px;
+                gap: 20px;
                 transition: var(--transition);
                 z-index: 1001;
             }
@@ -661,14 +755,14 @@
 
             .lien-nav {
                 font-size: 1.1rem;
-                color: #FFFFFF;
+                color: var(--texte-principal);
             }
 
             .bouton-en-tete {
                 display: none;
             }
 
-            .grille-accueil, .grille-a-propos, .grille-contact {
+            .grille-accueil, .grille-a-propos, .grille-contact, .grille-equipe {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
@@ -697,7 +791,7 @@
         }
     </style>
 </head>
-<body>
+<body data-theme="light">
 
     <header class="barre-navigation" id="barreNav">
         <div class="conteneur conteneur-nav">
@@ -716,13 +810,18 @@
             </button>
 
             <ul class="liens-nav" id="liensNav">
-                <li><a href="#a propos" class="lien-nav">À Propos</a></li>
+                <li><a href="#a-propos" class="lien-nav">À Propos</a></li>
+                <li><a href="#equipe" class="lien-nav">Notre Équipe</a></li>
                 <li><a href="#services" class="lien-nav">Services</a></li>
                 <li><a href="#contact" class="lien-nav">Contact</a></li>
-                <li style="margin-top: 12px;"><a href="https://wa.me/243994871449" target="_blank" class="bouton-principal" style="width: 100%; padding: 12px; text-align: center;">WhatsApp Direct</a></li>
             </ul>
 
-            <a href="https://wa.me/243994871449" target="_blank" class="bouton-en-tete">Écrire sur WhatsApp</a>
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <button class="bouton-theme" id="declencheurTheme" aria-label="Changer le thème">
+                    <span class="icone-theme"></span>
+                </button>
+                <a href="https://wa.me/243994871449" target="_blank" class="bouton-en-tete">Ecrire sur WhatsApp</a>
+            </div>
         </div>
     </header>
 
@@ -730,7 +829,7 @@
         <div class="conteneur grille-accueil">
             <div class="contenu-accueil">
                 <span class="etiquette-section">Conseil & Accompagnement Stratégique</span>
-                <h1 class="titre-accueil">L'Exigence Juridique au Service de Votre Croissance.</h1>
+                <h1 class="titre-accueil">Structurer votre entreprise. Accompagner votre croissance.</h1>
                 <p class="sous-titre-accueil">
                     Nous guidons les porteurs de projets et les entreprises établies dans leur structuration, leur conformité réglementaire et leur développement durable en RDC.
                 </p>
@@ -748,7 +847,7 @@
                     Pérenniser.
                 </div>
                 <div class="meta-accueil">
-                    Cabinet basé à Lubumbashi 
+                    Cabinet de consultance basé à Lubumbashi • Expertise Haut-Katanga & Lualaba
                 </div>
             </div>
         </div>
@@ -768,9 +867,10 @@
 
                 <div class="encadre-fondateur">
                     <div class="nom-fondateur">Philippe KAZOMBYA</div>
-                    <div class="fonction-fondateur">Fondateur & Directeur Général</div>
+                    <div class="fonction-fondateur">Fondateur et Directeur Général</div>
                     <div class="biographie-fondateur">
-                        Juriste de formation passionné par le droit des affaires et l'entrepreneuriat, Philippe Kazombya met son expertise au service de la création d'entreprises solides, parfaitement intégrées dans leur cadre légal et parées pour une croissance pérenne.
+                        Juriste de formation, passionné par le droit des affaires et l’entrepreneuriat, Philippe KAZOMBYA porte une vision de l’accompagnement des entreprises qui dépasse les seules formalités administratives et juridiques.<br><br>
+                        À travers KZ CORPORATE CONSULTING, il entend contribuer à la création, à la structuration et au développement d’entreprises solides, organisées et pérennes.
                     </div>
                 </div>
             </div>
@@ -779,20 +879,63 @@
                 <span class="etiquette-section">Notre Approche</span>
                 <h2 class="titre-section">Ce qui guide nos interventions.</h2>
                 
-                <ul class="liste-valeurs">
-                    <li class="element-valeur">
-                        <div class="titre-valeur">Pragmatisme & Analyse</div>
-                        <div class="description-valeur">Chaque recommandation repose sur un audit approfondi des réalités opérationnelles et juridiques de votre secteur.</div>
+                <ul class="liste-valeurs" style="list-style: none; display: grid; gap: 16px; margin-top: 20px;">
+                    <li class="element-valeur" style="background: var(--arriere-plan-carte); border: 1px solid var(--bordure-legere); padding: 20px 24px;">
+                        <div style="font-family: var(--police-titres); font-size: 1rem; color: var(--texte-principal); margin-bottom: 6px;">Pragmatisme & Analyse</div>
+                        <div style="font-size: 0.88rem; color: var(--texte-secondaire);">Chaque recommandation repose sur un audit approfondi des réalités opérationnelles et juridiques de votre secteur.</div>
                     </li>
-                    <li class="element-valeur">
-                        <div class="titre-valeur">Rigueur & Conformité</div>
-                        <div class="description-valeur">Sécurisation intégrale de vos actes, contrats et procédures pour garantir une sérénité totale face aux régulateurs.</div>
+                    <li class="element-valeur" style="background: var(--arriere-plan-carte); border: 1px solid var(--bordure-legere); padding: 20px 24px;">
+                        <div style="font-family: var(--police-titres); font-size: 1rem; color: var(--texte-principal); margin-bottom: 6px;">Rigueur & Conformité</div>
+                        <div style="font-size: 0.88rem; color: var(--texte-secondaire);">Sécurisation intégrale de vos actes, contrats et procédures pour garantir une sérénité totale face aux régulateurs.</div>
                     </li>
-                    <li class="element-valeur">
-                        <div class="titre-valeur">Orientation Résultats</div>
-                        <div class="description-valeur">Des solutions concrètes conçues pour optimiser la gouvernance et faciliter le développement commercial.</div>
+                    <li class="element-valeur" style="background: var(--arriere-plan-carte); border: 1px solid var(--bordure-legere); padding: 20px 24px;">
+                        <div style="font-family: var(--police-titres); font-size: 1rem; color: var(--texte-principal); margin-bottom: 6px;">Orientation Résultats</div>
+                        <div style="font-size: 0.88rem; color: var(--texte-secondaire);">Des solutions concrètes conçues pour optimiser la gouvernance et faciliter le développement commercial.</div>
                     </li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="equipe">
+        <div class="conteneur">
+            <div class="section-equipe-header">
+                <span class="etiquette-section">Compétences Clés</span>
+                <h2 class="titre-section">Notre équipe</h2>
+            </div>
+
+            <div class="grille-equipe">
+                <div class="carte-equipe">
+                    <div>
+                        <div class="carte-equipe-titre-principal">2 Juristes</div>
+                        <div class="carte-equipe-sous-titre">Droit des affaires</div>
+                        <p class="carte-equipe-description">Spécialisés en droit OHADA, droit des sociétés, formalités de constitution, rédaction d'actes et conformité juridique. Ils accompagnent les entreprises dans leur structuration et leurs obligations légales.</p>
+                    </div>
+                </div>
+
+                <div class="carte-equipe">
+                    <div>
+                        <div class="carte-equipe-titre-principal">1 Expert-comptable</div>
+                        <div class="carte-equipe-sous-titre">Comptabilité et finance</div>
+                        <p class="carte-equipe-description">Spécialisé dans l'organisation comptable, le suivi des obligations comptables et l'accompagnement financier des entreprises.</p>
+                    </div>
+                </div>
+
+                <div class="carte-equipe">
+                    <div>
+                        <div class="carte-equipe-titre-principal">1 Expert en gestion d'entreprise et management</div>
+                        <div class="carte-equipe-sous-titre">Organisation et management</div>
+                        <p class="carte-equipe-description">Spécialisé dans l'organisation des entreprises, le management, l'optimisation des processus, le pilotage des activités et l'accompagnement stratégique des organisations.</p>
+                    </div>
+                </div>
+
+                <div class="carte-equipe">
+                    <div>
+                        <div class="carte-equipe-titre-principal">Une expertise multidisciplinaire</div>
+                        <div class="carte-equipe-sous-titre">Complémentarité</div>
+                        <p class="carte-equipe-description">La complémentarité de nos compétences nous permet d'accompagner les entrepreneurs et les entreprises dans leurs enjeux juridiques, comptables, financiers et organisationnels.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -861,7 +1004,7 @@
                 <div class="details-contact">
                     <div class="element-detail-contact">
                         <div class="etiquette-detail">Adresse des bureaux</div>
-                        <div class="valeur-detail">N° 1074, Avenue Kilela Balanda, Commune de Lubumbashi, DRC</div>
+                        <div class="valeur-detail">N° 1074, Avenue Kilela Balanda, Commune de Lubumbashi</div>
                     </div>
 
                     <div class="element-detail-contact">
@@ -876,7 +1019,7 @@
 
                     <div class="element-detail-contact">
                         <div class="etiquette-detail">Horaires d'ouverture</div>
-                        <div class="valeur-detail">Lundi – Vendredi : 08h00 – 18h00 | Samedi : 08h00 – 12h00</div>
+                        <div class="valeur-detail">Lundi – Vendredi : 08h00 – 18h00 / Samedi : 08h00 – 12h00</div>
                     </div>
                 </div>
             </div>
@@ -885,17 +1028,17 @@
                 <form id="formulaireClient" action="mailto:kzcorporateconsulting@gmail.com" method="post" enctype="text/plain">
                     <div class="groupe-formulaire">
                         <label class="etiquette-formulaire" for="nom">Nom complet / Entreprise</label>
-                        <input type="text" id="nom" name="Nom" class="champ-saisie" required placeholder="Votre nom d'entreprise ou votre nom complet">
+                        <input type="text" id="nom" name="Nom" class="champ-saisie" required placeholder="Votre nom ou nom de l'entreprise">
                     </div>
 
                     <div class="groupe-formulaire">
                         <label class="etiquette-formulaire" for="courriel">E-mail professionnel</label>
-                        <input type="email" id="courriel" name="Email" class="champ-saisie" required placeholder="...@exemple.com">
+                        <input type="email" id="courriel" name="Email" class="champ-saisie" required placeholder="...@gmail.com">
                     </div>
 
                     <div class="groupe-formulaire">
                         <label class="etiquette-formulaire" for="telephone">Numéro de téléphone</label>
-                        <input type="tel" id="telephone" name="Telephone" class="champ-saisie" placeholder="0">
+                        <input type="tel" id="telephone" name="Telephone" class="champ-saisie" placeholder="+0 ...">
                     </div>
 
                     <div class="groupe-formulaire">
@@ -909,13 +1052,13 @@
         </div>
     </section>
 
-  <div class="section-reseaux">
+    <div class="section-reseaux">
         <div class="conteneur flex-reseaux">
             <span style="font-size: 0.85rem; color: var(--texte-secondaire);">Rejoignez nos réseaux professionnels :</span>
             <div class="liens-reseaux">
-                <a href="https://www.facebook.com/search/top?q=KZ%20corporate%20consulting" target="_blank" class="bouton-reseau">Facebook</a>
-                <a href="https://www.instagram.com/kz_corporate_consulting" target="_blank" class="bouton-reseau">Instagram</a>
                 <a href="https://www.linkedin.com/search/results/all/?keywords=KZ%20Corporate%20Consulting" target="_blank" class="bouton-reseau">LinkedIn</a>
+                <a href="https://www.instagram.com/kz_corporate_consulting" target="_blank" class="bouton-reseau">Instagram</a>
+                <a href="https://www.facebook.com/search/top?q=KZ%20corporate%20consulting" target="_blank" class="bouton-reseau">Facebook</a>
                 <a href="https://www.tiktok.com/@kz_corporate_consulting" target="_blank" class="bouton-reseau">TikTok</a>
             </div>
         </div>
@@ -924,7 +1067,7 @@
     <pied-de-page>
         <div class="conteneur">
             <div class="flex-pied-de-page">
-                <div class="nom-marque" style="font-size: 1rem;">KZ CORPORATE CONSULTING</div>
+                <div class="nom-marque" style="font-size: 1rem; color: var(--texte-principal);">KZ CORPORATE CONSULTING</div>
                 <div style="font-size: 0.8rem;">Structurer • Développer • Pérenniser</div>
             </div>
 
@@ -973,6 +1116,21 @@
                 }
             });
         });
+
+        const declencheurTheme = document.getElementById('declencheurTheme');
+        const body = document.body;
+
+        function basculerTheme() {
+            const themeActuel = body.getAttribute('data-theme');
+            const nouveauTheme = themeActuel === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', nouveauTheme);
+            localStorage.setItem('theme_kz', nouveauTheme);
+        }
+
+        const themeEnregistre = localStorage.getItem('theme_kz') || 'light';
+        body.setAttribute('data-theme', themeEnregistre);
+
+        declencheurTheme.addEventListener('click', basculerTheme);
     </script>
 </body>
 </html>
