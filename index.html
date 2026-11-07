@@ -53,7 +53,7 @@
             overflow-x: hidden;
             padding-top: env(safe-area-inset-top);
             padding-bottom: env(safe-area-inset-bottom);
-            background-image: url('arriere blanc.jpg'), url('noir.jpg');
+            background-image: url('arriere blanc.jpg'), url('arriere noir.jpg');
             background-repeat: no-repeat, no-repeat;
             background-position: top left, bottom right;
             background-attachment: fixed;
@@ -487,16 +487,37 @@
             transform: translateY(-4px);
         }
 
+        .entete-carte-equipe {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .image-logo-custom {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            mix-blend-mode: multiply; 
+            flex-shrink: 0;
+        }
+
+        [data-theme="dark"] .image-logo-custom {
+            filter: invert(1); 
+            mix-blend-mode: screen;
+        }
+
         .carte-equipe-titre-principal {
             font-family: var(--police-titres);
             font-size: 1.25rem;
             color: var(--texte-principal);
-            margin-bottom: 8px;
+            margin-bottom: 4px;
             line-height: 1.3;
         }
 
         .carte-equipe-sous-titre {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             color: var(--texte-sourd);
             text-transform: uppercase;
@@ -536,17 +557,23 @@
             border-color: var(--texte-principal);
         }
 
+        .entete-carte-service {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
         .numero-service {
             font-family: var(--police-titres);
             font-size: 1.1rem;
             color: var(--texte-sourd);
-            margin-bottom: 18px;
         }
 
         .titre-service {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--texte-principal);
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             line-height: 1.3;
         }
 
@@ -867,7 +894,7 @@
                 <button class="bouton-theme" id="declencheurTheme" aria-label="Changer le thème">
                     <span class="icone-theme"></span>
                 </button>
-                <a href="https://wa.me/243994871449" target="_blank" class="bouton-en-tete">Écrire sur WhatsApp</a>
+                <a href="https://wa.me/243994871449" target="_blank" class="bouton-en-tete">Ecrire sur WhatsApp</a>
             </div>
         </div>
     </header>
@@ -894,7 +921,7 @@
                     Pérenniser.
                 </div>
                 <div class="meta-accueil">
-                    Cabinet de consultance basé à Lubumbashi 
+                    Cabinet de consultance basé à Lubumbashi • Expertise Haut-Katanga & Lualaba
                 </div>
             </div>
         </div>
@@ -957,32 +984,52 @@
             <div class="grille-equipe">
                 <div class="carte-equipe">
                     <div>
-                        <div class="carte-equipe-titre-principal">2 Juristes</div>
-                        <div class="carte-equipe-sous-titre">Droit des affaires</div>
+                        <div class="entete-carte-equipe">
+                            <div>
+                                <div class="carte-equipe-titre-principal">2 Juristes</div>
+                                <div class="carte-equipe-sous-titre">Droit des affaires</div>
+                            </div>
+                            <img src="BALANCE.jpg" alt="Juriste" class="image-logo-custom">
+                        </div>
                         <p class="carte-equipe-description">Spécialisés en droit OHADA, droit des sociétés, formalités de constitution, rédaction d'actes et conformité juridique. Ils accompagnent les entreprises dans leur structuration et leurs obligations légales.</p>
                     </div>
                 </div>
 
                 <div class="carte-equipe">
                     <div>
-                        <div class="carte-equipe-titre-principal">1 Expert-comptable</div>
-                        <div class="carte-equipe-sous-titre">Comptabilité et finance</div>
+                        <div class="entete-carte-equipe">
+                            <div>
+                                <div class="carte-equipe-titre-principal">1 Expert-comptable</div>
+                                <div class="carte-equipe-sous-titre">Comptabilité et finance</div>
+                            </div>
+                            <img src="CALCUL.jpg" alt="Comptable" class="image-logo-custom">
+                        </div>
                         <p class="carte-equipe-description">Spécialisé dans l'organisation comptable, le suivi des obligations comptables et l'accompagnement financier des entreprises.</p>
                     </div>
                 </div>
 
                 <div class="carte-equipe">
                     <div>
-                        <div class="carte-equipe-titre-principal">1 Expert en gestion d'entreprise et management</div>
-                        <div class="carte-equipe-sous-titre">Organisation et management</div>
+                        <div class="entete-carte-equipe">
+                            <div>
+                                <div class="carte-equipe-titre-principal">1 Expert en gestion d'entreprise</div>
+                                <div class="carte-equipe-sous-titre">Organisation et management</div>
+                            </div>
+                            <img src="MONTE.jpg" alt="Gestion d'entreprise" class="image-logo-custom">
+                        </div>
                         <p class="carte-equipe-description">Spécialisé dans l'organisation des entreprises, le management, l'optimisation des processus, le pilotage des activités et l'accompagnement stratégique des organisations.</p>
                     </div>
                 </div>
 
                 <div class="carte-equipe">
                     <div>
-                        <div class="carte-equipe-titre-principal">Une expertise multidisciplinaire</div>
-                        <div class="carte-equipe-sous-titre">Complémentarité</div>
+                        <div class="entete-carte-equipe">
+                            <div>
+                                <div class="carte-equipe-titre-principal">Expertise multidisciplinaire</div>
+                                <div class="carte-equipe-sous-titre">Complémentarité</div>
+                            </div>
+                            <img src="all.jpg" alt="Complémentarité" class="image-logo-custom">
+                        </div>
                         <p class="carte-equipe-description">La complémentarité de nos compétences nous permet d'accompagner les entrepreneurs et les entreprises dans leurs enjeux juridiques, comptables, financiers et organisationnels.</p>
                     </div>
                 </div>
@@ -1000,7 +1047,10 @@
             <div class="grille-services">
                 <div class="carte-service">
                     <div>
-                        <div class="numero-service">01</div>
+                        <div class="entete-carte-service">
+                            <span class="numero-service">01</span>
+                            <img src="BUILD.jpg" alt="Création" class="image-logo-custom">
+                        </div>
                         <h3 class="titre-service">Création et implantation d’entreprises</h3>
                         <ul class="liste-service-details">
                             <li>Assistance à la création d’entreprises</li>
@@ -1014,7 +1064,10 @@
 
                 <div class="carte-service">
                     <div>
-                        <div class="numero-service">02</div>
+                        <div class="entete-carte-service">
+                            <span class="numero-service">02</span>
+                            <img src="PEOPLE.jpg" alt="Structuration" class="image-logo-custom">
+                        </div>
                         <h3 class="titre-service">Structuration juridique et organisationnelle</h3>
                         <ul class="liste-service-details">
                             <li>Choix de la forme juridique</li>
@@ -1028,7 +1081,10 @@
 
                 <div class="carte-service">
                     <div>
-                        <div class="numero-service">03</div>
+                        <div class="entete-carte-service">
+                            <span class="numero-service">03</span>
+                            <img src="CHECK.jpg" alt="Conformité" class="image-logo-custom">
+                        </div>
                         <h3 class="titre-service">Conformité et réglementation</h3>
                         <ul class="liste-service-details">
                             <li>Identification des obligations légales et réglementaires</li>
@@ -1042,7 +1098,10 @@
 
                 <div class="carte-service">
                     <div>
-                        <div class="numero-service">04</div>
+                        <div class="entete-carte-service">
+                            <span class="numero-service">04</span>
+                            <img src="LOUPE.jpg" alt="Études" class="image-logo-custom">
+                        </div>
                         <h3 class="titre-service">Études et analyses</h3>
                         <ul class="liste-service-details">
                             <li>Études de faisabilité</li>
@@ -1056,7 +1115,10 @@
 
                 <div class="carte-service">
                     <div>
-                        <div class="numero-service">05</div>
+                        <div class="entete-carte-service">
+                            <span class="numero-service">05</span>
+                            <img src="PION.jpg" alt="Conseil" class="image-logo-custom">
+                        </div>
                         <h3 class="titre-service">Conseil en affaires et accompagnement stratégique</h3>
                         <ul class="liste-service-details">
                             <li>Assistance aux entrepreneurs</li>
@@ -1068,9 +1130,13 @@
                     <a href="#contact" class="lien-service">Consulter <span>→</span></a>
                 </div>
 
+                <!-- 6. Développement et pérennisation -->
                 <div class="carte-service">
                     <div>
-                        <div class="numero-service">06</div>
+                        <div class="entete-carte-service">
+                            <span class="numero-service">06</span>
+                            <img src="MONTE2.jpg" alt="Développement" class="image-logo-custom">
+                        </div>
                         <h3 class="titre-service">Développement et pérennisation</h3>
                         <ul class="liste-service-details">
                             <li>Accompagnement à l’évolution des entreprises</li>
@@ -1105,7 +1171,7 @@
                 <div class="details-contact">
                     <div class="element-detail-contact">
                         <div class="etiquette-detail">Adresse des bureaux</div>
-                        <div class="valeur-detail">N° 1074, Avenue Kilela Balanda, Commune de Lubumbashi</div>
+                        <div class="valeur-detail">N° 1074, Avenue Kilela Balanda, Commune de Lubumbashi </div>
                     </div>
 
                     <div class="element-detail-contact">
@@ -1129,12 +1195,12 @@
                 <form id="formulaireClient" action="mailto:kzcorporateconsulting@gmail.com" method="post" enctype="text/plain">
                     <div class="groupe-formulaire">
                         <label class="etiquette-formulaire" for="nom">Nom complet / Entreprise</label>
-                        <input type="text" id="nom" name="Nom" class="champ-saisie" required placeholder="Votre nom ou  entreprise">
+                        <input type="text" id="nom" name="Nom" class="champ-saisie" required placeholder="Votre nom ou entreprise">
                     </div>
 
                     <div class="groupe-formulaire">
-                        <label class="etiquette-formulaire" for="courriel">E-mail </label>
-                        <input type="email" id="courriel" name="Email" class="champ-saisie" required placeholder="...@entreprise.com">
+                        <label class="etiquette-formulaire" for="courriel">E-mail professionnel</label>
+                        <input type="email" id="courriel" name="Email" class="champ-saisie" required placeholder="NOM@GMAIL.com">
                     </div>
 
                     <div class="groupe-formulaire">
@@ -1172,7 +1238,7 @@
                 <div style="font-size: 0.8rem;">Structurer / Développer / Pérenniser</div>
             </div>
 
-            <div class="mentions-legales-pied-de-page"
+            <div class="mentions-legales-pied-de-page">
                 <div class="credit-basyk">Conçu par <span>BASYK TECH</span></div>
             </div>
         </div>
